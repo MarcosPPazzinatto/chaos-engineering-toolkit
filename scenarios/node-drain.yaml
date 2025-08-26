@@ -1,0 +1,19 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: StressChaos
+metadata:
+  name: node-drain-example
+  namespace: chaos-testing
+spec:
+  mode: one
+  selector:
+    nodes:
+      - <node-name>
+  stressors:
+    cpu:
+      workers: 2
+      load: 80
+    memory:
+      workers: 1
+      size: "500Mi"
+  duration: "2m"
+
