@@ -1,0 +1,17 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: network-latency-example
+  namespace: chaos-testing
+spec:
+  action: delay
+  mode: all
+  selector:
+    namespaces:
+      - default
+  delay:
+    latency: "200ms"
+    correlation: "50"
+    jitter: "50ms"
+  duration: "2m"
+
